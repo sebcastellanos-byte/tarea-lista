@@ -107,6 +107,7 @@ function getSubjectStyle(subject) {
 
 // 2. Estado Global de la Aplicación
 const AppState = {
+  currentUser: null,
   tasks: [],
   currentView: "pendientes",
   pendingFilter: "all", // "all", "urgent", "week", "later"
@@ -118,15 +119,52 @@ const AppState = {
 
 // 3. Inicialización
 document.addEventListener("DOMContentLoaded", () => {
+  initUserSession();
   loadTasksFromStorage();
   initFormDates();
   setupEventListeners();
   renderAll();
 });
 
-// Cargar tareas de LocalStorage o usar datos demo
+// Inicializar sesión personalizada del estudiante
+function initUserSession() {
+  const savedUser = localStorage.getItem("tarealisto_current_user");
+  if (savedUser) {
+    try {
+      AppState.currentUser = JSON.parse(savedUser);
+    } catch(e) {
+      AppState.currentUser = {
+        name: "Sebastián Castellanos",
+        email: "sebcastellanos@uniboyca.edu.co"
+      };
+    }
+  } else {
+    // Usuario inicial por defecto
+    AppState.currentUser = {
+      name: "Sebastián Castellanos",
+      email: "sebcastellanos@uniboyca.edu.co"
+    };
+    saveUserSession();
+  }
+  updateUserUI();
+}
+
+function saveUserSession() {
+  if (AppState.currentUser) {
+    localStorage.setItem("tarealisto_current_user", JSON.stringify(AppState.currentUser));
+  }
+}
+
+// Clave única de almacenamiento por cuenta (aísla las tareas por usuario)
+function getStorageKey() {
+  const email = AppState.currentUser ? AppState.currentUser.email.replace(/[^a-zA-Z0-9]/g, "_") : "default";
+  return `tarealisto_tasks_${email}`;
+}
+
+// Cargar tareas de LocalStorage para el usuario activo
 function loadTasksFromStorage() {
-  const saved = localStorage.getItem("tarealisto_tasks");
+  const key = getStorageKey();
+  const saved = localStorage.getItem(key);
   if (saved) {
     try {
       AppState.tasks = JSON.parse(saved);
@@ -142,11 +180,16 @@ function loadTasksFromStorage() {
 }
 
 function saveTasksToStorage() {
-  localStorage.setItem("tarealisto_tasks", JSON.stringify(AppState.tasks));
+  const key = getStorageKey();
+  localStorage.setItem(key, JSON.stringify(AppState.tasks));
 }
 
 // 4. Configuración de eventos de UI
 function setupEventListeners() {
+  // Botón para ver perfil / cuenta
+  document.getElementById("profile-toggle-btn")?.addEventListener("click", () => {
+    openProfileModal();
+  });
   // Filtros rápidos en Tareas Pendientes
   document.querySelectorAll("#pending-filters-bar .filter-pill").forEach(pill => {
     pill.addEventListener("click", () => {
@@ -804,4 +847,106 @@ function showToast(message) {
     toast.classList.add("hidden");
     toast.classList.remove("flex");
   }, 2400);
+}
+
+// 14. Personalización y Gestión de Cuentas de Usuario (Google / Gmail)
+function loginWithPreset(name, email) {
+  AppState.currentUser = { name, email };
+  saveUserSession();
+  loadTasksFromStorage();
+  updateUserUI();
+  closeLoginModal();
+  renderAll();
+  showToast(`Bienvenido, ${getFirstName(name)} ✨`);
+}
+
+function handleCustomLogin(e) {
+  e.preventDefault();
+  const nameInput = document.getElementById("login-name-input");
+  const emailInput = document.getElementById("login-email-input");
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim().toLowerCase();
+
+  if (!name || !email) return;
+
+  AppState.currentUser = { name, email };
+  saveUserSession();
+  loadTasksFromStorage();
+  updateUserUI();
+  closeLoginModal();
+  renderAll();
+  showToast(`Sesión iniciada como ${getFirstName(name)} ✨`);
+}
+
+function promptSwitchAccount() {
+  closeProfileModal();
+  openLoginModal();
+}
+
+function openLoginModal() {
+  const modal = document.getElementById("login-modal");
+  if (modal) {
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  }
+}
+
+function closeLoginModal() {
+  const modal = document.getElementById("login-modal");
+  if (modal) {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+}
+
+function openProfileModal() {
+  const modal = document.getElementById("profile-modal");
+  if (!modal || !AppState.currentUser) return;
+
+  const initials = getInitials(AppState.currentUser.name);
+  const pendingCount = AppState.tasks.filter(t => !t.completed).length;
+  const completedCount = AppState.tasks.filter(t => t.completed).length;
+
+  document.getElementById("modal-user-avatar").textContent = initials;
+  document.getElementById("modal-user-name").textContent = AppState.currentUser.name;
+  document.getElementById("modal-user-email").innerHTML = `<span class="w-2 h-2 rounded-full bg-secondary"></span> ${escapeHTML(AppState.currentUser.email)}`;
+  document.getElementById("modal-user-pending").textContent = pendingCount;
+  document.getElementById("modal-user-completed").textContent = completedCount;
+
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+}
+
+function closeProfileModal() {
+  const modal = document.getElementById("profile-modal");
+  if (modal) {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+}
+
+function updateUserUI() {
+  if (!AppState.currentUser) return;
+  const firstName = getFirstName(AppState.currentUser.name);
+  const initials = getInitials(AppState.currentUser.name);
+
+  // Avatar en barra superior
+  const headerAvatar = document.getElementById("header-user-avatar");
+  if (headerAvatar) headerAvatar.textContent = initials;
+
+  // Saludo dinámico en pantalla principal
+  const greetingEl = document.getElementById("user-greeting-name");
+  if (greetingEl) greetingEl.textContent = firstName;
+}
+
+function getFirstName(fullName) {
+  if (!fullName) return "Estudiante";
+  return fullName.trim().split(/\s+/)[0];
+}
+
+function getInitials(fullName) {
+  if (!fullName) return "EST";
+  const parts = fullName.trim().split(/\s+/);
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[1][0]).toUpperCase();
 }
