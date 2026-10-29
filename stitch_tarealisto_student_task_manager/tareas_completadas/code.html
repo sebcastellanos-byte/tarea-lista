@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-container": "#885500", "on-secondary": "#ffffff", "surface-tint": "#4d44e3", "error-container": "#ffdad6", "primary": "#3525cd", "on-error-container": "#93000a", "surface-container": "#eaedff", "on-primary": "#ffffff", "on-tertiary": "#ffffff", "on-surface": "#131b2e", "inverse-primary": "#c3c0ff", "secondary": "#006c49", "on-secondary-container": "#00714d", "on-primary-fixed-variant": "#3323cc", "on-primary-fixed": "#0f0069", "surface-container-high": "#e2e7ff", "secondary-fixed-dim": "#4edea3", "primary-container": "#4f46e5", "surface-container-lowest": "#ffffff", "tertiary-fixed": "#ffddb8", "on-secondary-fixed-variant": "#005236", "surface-dim": "#d2d9f4", "on-secondary-fixed": "#002113", "on-tertiary-fixed-variant": "#653e00", "on-error": "#ffffff", "surface": "#faf8ff", "error": "#ba1a1a", "secondary-fixed": "#6ffbbe", "surface-variant": "#dae2fd", "surface-bright": "#faf8ff", "outline-variant": "#c7c4d8", "tertiary": "#684000", "inverse-surface": "#283044", "secondary-container": "#6cf8bb", "on-background": "#131b2e", "primary-fixed-dim": "#c3c0ff", "outline": "#777587", "on-tertiary-fixed": "#2a1700", "inverse-on-surface": "#eef0ff", "surface-container-low": "#f2f3ff", "tertiary-fixed-dim": "#ffb95f", "background": "#faf8ff", "on-primary-container": "#dad7ff", "on-surface-variant": "#464555", "surface-container-highest": "#dae2fd", "primary-fixed": "#e2dfff", "on-tertiary-container": "#ffd4a4" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1rem", "margin-mobile": "1rem", "margin": "1.25rem", "space-xs": "0.25rem", "space-md": "0.75rem", "space-sm": "0.5rem", "space-xl": "1.5rem", "gutter": "1rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "display": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "body-lg": ["Inter"] }, "fontSize": { "display": ["36px", { "lineHeight": "44px", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg": ["30px", { "lineHeight": "38px", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="Logo TareaListo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH8yAd55oRy-AxZOuxjUzGbced-vISsNDz0uyy9s17uIz6lsSP4QoxqyJlSYFkb0QEnChKXCfQJsBwOwTpq0OU4X33dvzEkUTAPe40YsX0tGnVYuxeF12UJVfviHgYt7xHnF5nMIWNjrv-t1PyQRgDr6QXBzmFgrwhARulAZjb4j-RWsDDaMHNw5dD22PCLNCPAQNkL_5rhLEdT8-XxT0yRbw7AwtiPLEixf2nb20"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary leading-tight font-bold tracking-tight truncate">TareaListo</span><span class="text-outline-variant font-body-sm text-body-sm hidden xs:inline">•</span><span class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight truncate hidden xs:inline">Completadas</span></div><span class="font-body-sm text-body-sm text-on-surface-variant truncate">Semestre Activo 2025</span></div></div><div class="flex items-center gap-space-sm flex-shrink-0"><button aria-label="Buscar tareas o materias" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Perfil de estudiante" class="w-11 h-11 flex items-center justify-center rounded-full"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf6tQK2gLYY7aP0hTFvO0uIRi6BZai6GDEmzhVJwi20jTJFd5yZBYMYM0a1It3APeHtdEpOrTbDNM7Zng6G0O1L9mTnKbTzYwdY5PU6cTFKWHr9aEcq2ChD1vLy_pAclOAMtuqc2PQVrH0tKefe5glPehdRq127JJy_mM5kk9gz5nUNvkBlRv10ZHYi84xWb0YvdYOgDL00ThPeT6EiGYSZEAK_TDNtB41OtjwLY4"/></button></div></div></header><main class="flex-1 w-full bg-surface pt-16 pb-28"><div class="flex flex-col w-full px-margin pb-6 gap-space-xl">
+<!-- Tarjeta de Motivación y Rendimiento -->
+<section class="relative overflow-hidden bg-surface-container rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-secondary-fixed/40 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between gap-space-sm relative z-10">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm w-fit">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+          85% de efectividad
+        </span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">¡Excelente trabajo! 🎉</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Has finalizado <strong class="text-primary font-semibold">8 tareas</strong> en este período lectivo.</p>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+</div>
+<!-- Barra de Progreso con Porcentaje -->
+<div class="flex flex-col gap-1.5 pt-1 relative z-10">
+<div class="flex justify-between items-center text-on-surface font-label-md text-label-md">
+<span class="text-on-surface-variant">Meta mensual alcanzada</span>
+<span class="text-secondary font-bold">80% completado</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden p-0.5">
+<div class="h-full bg-secondary rounded-full transition-all duration-700 w-4/5"></div>
+</div>
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm mt-0.5">
+<span>8 de 10 entregas clave</span>
+<span>2 restantes</span>
+</div>
+</div>
+</section>
+<!-- Resumen de Logros por Materia -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Logros por Materia</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">4 materias activas</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-md text-label-md font-bold text-primary">1 / 1</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate mt-1">Ing. de Software</p>
+<span class="font-label-sm text-label-sm text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check</span> 100% al día
+        </span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<span class="font-label-md text-label-md font-bold text-tertiary">2 / 2</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate mt-1">Física II</p>
+<span class="font-label-sm text-label-sm text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check</span> 2 labs listos
+        </span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md font-bold text-secondary">1 / 2</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate mt-1">Cálculo II</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 1 pendiente
+        </span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-fixed-dim"></span>
+<span class="font-label-md text-label-md font-bold text-on-surface">1 / 1</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate mt-1">Humanidades</p>
+<span class="font-label-sm text-label-sm text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check</span> Al corriente
+        </span>
+</div>
+</div>
+</section>
+<!-- Filtro de Período -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Historial de Tareas</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">5 de 8 mostradas</span>
+</div>
+<!-- Segmented Control Filters -->
+<div class="flex items-center p-1 bg-surface-container-high rounded-xl gap-1" id="filter-group">
+<button class="filter-btn flex-1 py-1.5 px-3 rounded-lg text-center font-label-md text-label-md font-semibold bg-surface-container-lowest text-primary shadow-sm transition-all" data-filter="month" type="button">
+        Este mes
+      </button>
+<button class="filter-btn flex-1 py-1.5 px-3 rounded-lg text-center font-label-md text-label-md font-semibold text-on-surface-variant hover:text-on-surface transition-all" data-filter="semester" type="button">
+        Semestre actual
+      </button>
+<button class="filter-btn flex-1 py-1.5 px-3 rounded-lg text-center font-label-md text-label-md font-semibold text-on-surface-variant hover:text-on-surface transition-all" data-filter="all" type="button">
+        Todas
+      </button>
+</div>
+</section>
+<!-- Lista de Actividades Completadas -->
+<section class="flex flex-col gap-space-sm" id="tasks-container">
+<!-- Tarea 1 -->
+<div class="task-card flex items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm transition-all hover:shadow-md" data-id="1">
+<div class="flex items-start gap-space-sm min-w-0 flex-1 pr-2">
+<div class="w-6 h-6 rounded-lg bg-secondary text-on-secondary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+<svg class="w-3.5 h-3.5 fill-none stroke-current stroke-[2.5]" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="font-headline-sm text-[15px] font-semibold text-on-surface-variant line-through decoration-outline-variant truncate">
+            Presentación Proyecto Final
+          </p>
+<div class="flex items-center gap-space-xs flex-wrap mt-0.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold">
+              Ingeniería de Software
+            </span>
+<span class="text-outline-variant font-body-sm text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">event_available</span>
+              18 Oct
+            </span>
+</div>
+</div>
+</div>
+<button aria-label="Desmarcar Presentación Proyecto Final" class="reopen-btn w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all flex-shrink-0" title="Reabrir / Desmarcar tarea" type="button">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+</button>
+</div>
+<!-- Tarea 2 -->
+<div class="task-card flex items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm transition-all hover:shadow-md" data-id="2">
+<div class="flex items-start gap-space-sm min-w-0 flex-1 pr-2">
+<div class="w-6 h-6 rounded-lg bg-secondary text-on-secondary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+<svg class="w-3.5 h-3.5 fill-none stroke-current stroke-[2.5]" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="font-headline-sm text-[15px] font-semibold text-on-surface-variant line-through decoration-outline-variant truncate">
+            Guía de Ejercicios N° 4
+          </p>
+<div class="flex items-center gap-space-xs flex-wrap mt-0.5">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/60 text-secondary font-label-sm text-label-sm font-semibold">
+              Cálculo II
+            </span>
+<span class="text-outline-variant font-body-sm text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">event_available</span>
+              15 Oct
+            </span>
+</div>
+</div>
+</div>
+<button aria-label="Desmarcar Guía de Ejercicios N° 4" class="reopen-btn w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all flex-shrink-0" title="Reabrir / Desmarcar tarea" type="button">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+</button>
+</div>
+<!-- Tarea 3 -->
+<div class="task-card flex items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm transition-all hover:shadow-md" data-id="3">
+<div class="flex items-start gap-space-sm min-w-0 flex-1 pr-2">
+<div class="w-6 h-6 rounded-lg bg-secondary text-on-secondary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+<svg class="w-3.5 h-3.5 fill-none stroke-current stroke-[2.5]" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="font-headline-sm text-[15px] font-semibold text-on-surface-variant line-through decoration-outline-variant truncate">
+            Control de Lectura Semanal
+          </p>
+<div class="flex items-center gap-space-xs flex-wrap mt-0.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+              Humanidades
+            </span>
+<span class="text-outline-variant font-body-sm text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">event_available</span>
+              12 Oct
+            </span>
+</div>
+</div>
+</div>
+<button aria-label="Desmarcar Control de Lectura Semanal" class="reopen-btn w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all flex-shrink-0" title="Reabrir / Desmarcar tarea" type="button">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+</button>
+</div>
+<!-- Tarea 4 -->
+<div class="task-card flex items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm transition-all hover:shadow-md" data-id="4">
+<div class="flex items-start gap-space-sm min-w-0 flex-1 pr-2">
+<div class="w-6 h-6 rounded-lg bg-secondary text-on-secondary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+<svg class="w-3.5 h-3.5 fill-none stroke-current stroke-[2.5]" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="font-headline-sm text-[15px] font-semibold text-on-surface-variant line-through decoration-outline-variant truncate">
+            Práctica N° 3 Osciloscopio
+          </p>
+<div class="flex items-center gap-space-xs flex-wrap mt-0.5">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm font-semibold">
+              Física II
+            </span>
+<span class="text-outline-variant font-body-sm text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">event_available</span>
+              10 Oct
+            </span>
+</div>
+</div>
+</div>
+<button aria-label="Desmarcar Práctica N° 3 Osciloscopio" class="reopen-btn w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all flex-shrink-0" title="Reabrir / Desmarcar tarea" type="button">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+</button>
+</div>
+<!-- Tarea 5 -->
+<div class="task-card flex items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm transition-all hover:shadow-md" data-id="5">
+<div class="flex items-start gap-space-sm min-w-0 flex-1 pr-2">
+<div class="w-6 h-6 rounded-lg bg-secondary text-on-secondary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+<svg class="w-3.5 h-3.5 fill-none stroke-current stroke-[2.5]" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="font-headline-sm text-[15px] font-semibold text-on-surface-variant line-through decoration-outline-variant truncate">
+            Cuestionario Pre-laboratorio
+          </p>
+<div class="flex items-center gap-space-xs flex-wrap mt-0.5">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm font-semibold">
+              Física II
+            </span>
+<span class="text-outline-variant font-body-sm text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">event_available</span>
+              8 Oct
+            </span>
+</div>
+</div>
+</div>
+<button aria-label="Desmarcar Cuestionario Pre-laboratorio" class="reopen-btn w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all flex-shrink-0" title="Reabrir / Desmarcar tarea" type="button">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+</button>
+</div>
+</section>
+<!-- Banner de Respaldo y Productividad -->
+<section class="p-space-md bg-surface-container-low rounded-xl flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">cloud_done</span>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface">Historial sincronizado</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Tus calificaciones y entregas se resguardan de forma segura.</p>
+</div>
+</section>
+<!-- Toast Notification Template for Micro-interactions -->
+<div class="fixed bottom-28 left-margin right-margin bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-xl shadow-xl flex items-center justify-between opacity-0 pointer-events-none transition-all duration-300 z-50" id="toast">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">info</span>
+<span class="font-body-md text-body-md font-medium" id="toast-text">Tarea devuelta a pendientes</span>
+</div>
+<button class="font-label-md text-label-md text-secondary-fixed hover:underline ml-2" id="toast-undo">Deshacer</button>
+</div>
+</div>
+<script>
+  (function() {
+    // Interacción de Filtros
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+          b.classList.add('text-on-surface-variant');
+        });
+        btn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+        btn.classList.remove('text-on-surface-variant');
+      });
+    });
+
+    // Interacción para Desmarcar / Reabrir tareas
+    const reopenButtons = document.querySelectorAll('.reopen-btn');
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toast-text');
+    let toastTimeout;
+
+    reopenButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const card = this.closest('.task-card');
+        const titleEl = card.querySelector('p');
+        const taskTitle = titleEl ? titleEl.textContent.trim() : 'Tarea';
+
+        // Animación suave de desmarcado / salida
+        card.style.opacity = '0.4';
+        card.style.transform = 'scale(0.98)';
+        
+        toastText.textContent = `"${taskTitle.slice(0, 20)}..." movida a Pendientes`;
+        toast.classList.remove('opacity-0', 'pointer-events-none');
+        toast.classList.add('opacity-100');
+
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove('opacity-100');
+          toast.classList.add('opacity-0', 'pointer-events-none');
+        }, 3200);
+      });
+    });
+  })();
+</script></main><div class="fixed bottom-24 right-margin z-50 pointer-events-none"><a class="pointer-events-auto flex items-center gap-space-xs px-margin py-space-sm h-12 bg-primary text-on-primary rounded-full shadow-[0_12px_28px_-4px_rgba(79,70,229,0.36),0_4px_10px_-2px_rgba(15,23,42,0.08)] active:scale-95 transition-all hover:bg-primary-container" data-path="nueva-tarea" href="#"><span class="material-symbols-outlined text-[20px]">add</span><span class="font-label-lg text-label-lg font-bold">Nueva Tarea</span></a></div><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(15,23,42,0.05)]" data-active-classes="text-primary font-label-md"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex-1 flex flex-col items-center justify-center min-h-[44px] gap-[2px] text-on-surface-variant transition-colors hover:text-primary" data-path="pendientes" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-label-sm text-label-sm tracking-tight">Pendientes</span></a><a class="flex-1 flex flex-col items-center justify-center min-h-[44px] gap-[2px] text-on-surface-variant transition-colors hover:text-primary" data-path="materias" href="#"><span class="material-symbols-outlined text-[22px]">menu_book</span><span class="font-label-sm text-label-sm tracking-tight">Materias</span></a><a aria-current="page" class="flex-1 flex flex-col items-center justify-center min-h-[44px] gap-[2px] transition-colors text-primary font-label-md" data-path="completadas" href="#"><span class="material-symbols-outlined text-[22px]">check_circle</span><span class="font-label-sm text-label-sm tracking-tight">Completadas</span></a><a class="flex-1 flex flex-col items-center justify-center min-h-[44px] gap-[2px] text-on-surface-variant transition-colors hover:text-primary" data-path="busqueda" href="#"><span class="material-symbols-outlined text-[22px]">search</span><span class="font-label-sm text-label-sm tracking-tight">Búsqueda</span></a></div></nav></body></html>

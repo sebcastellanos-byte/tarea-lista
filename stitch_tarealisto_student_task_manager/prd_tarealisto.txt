@@ -1,0 +1,25 @@
+# PRD — DOCUMENTO DE REQUISITOS DEL PRODUCTO
+**Aplicación:** TareaListo | **Grupo:** [29]
+
+## 1. El problema
+En la vida universitaria, los estudiantes suelen tener varias asignaturas, trabajos, evaluaciones y fechas de entrega al mismo tiempo. Con frecuencia anotan sus compromisos en distintos lugares, como cuadernos, chats o aplicaciones diferentes, por lo que resulta difícil consultar toda la información de manera rápida. Esta desorganización puede ocasionar que olviden actividades, entreguen trabajos fuera de plazo o no sepan qué tarea deben priorizar. TareaListo busca resolver esta necesidad reuniendo las actividades académicas en un solo lugar sencillo de utilizar.
+
+## 2. El usuario
+El usuario principal es un estudiante universitario que cursa varias materias y debe cumplir con trabajos individuales, proyectos en grupo y otras actividades académicas. Necesita registrar lo que debe hacer, conocer las fechas límite y revisar su progreso sin perder tiempo buscando información en diferentes medios. La aplicación está pensada especialmente para estudiantes que desean una herramienta práctica y fácil de entender, sin configuraciones complicadas.
+
+## 3. Las funciones
+1. **Registrar tareas:** guardar el nombre de la actividad, la asignatura a la que pertenece y su fecha de entrega.
+2. **Consultar actividades:** visualizar en una lista las tareas pendientes y las que ya se completaron.
+3. **Marcar como terminada:** cambiar el estado de una tarea cuando el estudiante finalice la actividad.
+4. **Buscar tareas:** encontrar una actividad escribiendo su nombre o la asignatura correspondiente.
+5. **Ordenar por fecha:** organizar las tareas por fecha de entrega para identificar cuáles se acercan primero.
+
+## 4. Lo que no hace (Fuera de alcance)
+En su primera versión, TareaListo:
+- No resolverá ni redactará las tareas por el estudiante.
+- No enviará trabajos a los profesores.
+- No tendrá chat ni permitirá consultar o modificar calificaciones.
+- No se conectará con plataformas educativas o calendarios externos.
+- No incluirá funciones de inteligencia artificial o notificaciones avanzadas.
+
+**Objetivo del producto:** facilitar la organización y el seguimiento de las responsabilidades académicas mediante una herramienta clara que permita registrar, consultar, buscar y completar tareas desde un solo lugar.
