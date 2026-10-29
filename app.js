@@ -132,26 +132,44 @@ function initUserSession() {
   if (savedUser) {
     try {
       AppState.currentUser = JSON.parse(savedUser);
+      saveProfileToList(AppState.currentUser);
     } catch(e) {
-      AppState.currentUser = {
-        name: "Sebastián Castellanos",
-        email: "sebcastellanos@uniboyca.edu.co"
-      };
+      AppState.currentUser = null;
     }
-  } else {
-    // Usuario inicial por defecto
-    AppState.currentUser = {
-      name: "Sebastián Castellanos",
-      email: "sebcastellanos@uniboyca.edu.co"
-    };
-    saveUserSession();
   }
-  updateUserUI();
+
+  // Si no hay usuario guardado, abrimos obligatoriamente el modal de bienvenida
+  if (!AppState.currentUser) {
+    openLoginModal(true);
+  } else {
+    updateUserUI();
+  }
+}
+
+function getSavedProfiles() {
+  try {
+    const list = localStorage.getItem("tarealisto_profiles_list");
+    return list ? JSON.parse(list) : [
+      { name: "Sebastián Castellanos", email: "sebcastellanos@uniboyca.edu.co" }
+    ];
+  } catch(e) {
+    return [{ name: "Sebastián Castellanos", email: "sebcastellanos@uniboyca.edu.co" }];
+  }
+}
+
+function saveProfileToList(user) {
+  if (!user || !user.email) return;
+  const list = getSavedProfiles();
+  if (!list.some(p => p.email.toLowerCase() === user.email.toLowerCase())) {
+    list.unshift(user);
+    localStorage.setItem("tarealisto_profiles_list", JSON.stringify(list));
+  }
 }
 
 function saveUserSession() {
   if (AppState.currentUser) {
     localStorage.setItem("tarealisto_current_user", JSON.stringify(AppState.currentUser));
+    saveProfileToList(AppState.currentUser);
   }
 }
 
@@ -305,7 +323,8 @@ function navigateTo(viewName) {
     pendientes: "Pendientes",
     completadas: "Completadas",
     busqueda: "Búsqueda y Materias",
-    registrar: "Nueva Tarea"
+    registrar: "Nueva Tarea",
+    perfil: "Mi Perfil"
   };
   document.getElementById("header-active-view-title").textContent = titles[viewName] || "TareaListo";
 
@@ -320,16 +339,17 @@ function navigateTo(viewName) {
     activeNav.classList.remove("text-on-surface-variant");
   }
 
-  // Ocultar FAB si estamos en la vista de registrar tarea
+  // Ocultar FAB si estamos en la vista de registrar tarea o perfil
   const fab = document.getElementById("fab-container");
   if (fab) {
-    fab.classList.toggle("hidden", viewName === "registrar");
+    fab.classList.toggle("hidden", viewName === "registrar" || viewName === "perfil");
   }
 
   // Renderizar la vista correspondiente
   if (viewName === "pendientes") renderPendingTasks();
   if (viewName === "completadas") renderCompletedTasks();
   if (viewName === "busqueda") renderSearchResults();
+  if (viewName === "perfil") renderPerfilView();
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -875,23 +895,39 @@ function handleCustomLogin(e) {
   updateUserUI();
   closeLoginModal();
   renderAll();
-  showToast(`Sesión iniciada como ${getFirstName(name)} ✨`);
+  showToast(`¡Perfil creado! Bienvenido, ${getFirstName(name)} ✨`);
+}
+
+function handleLogout() {
+  localStorage.removeItem("tarealisto_current_user");
+  AppState.currentUser = null;
+  openLoginModal(true);
+  showToast("Sesión cerrada correctamente");
 }
 
 function promptSwitchAccount() {
   closeProfileModal();
-  openLoginModal();
+  openLoginModal(false);
 }
 
-function openLoginModal() {
+function openLoginModal(isMandatory = false) {
   const modal = document.getElementById("login-modal");
+  const closeBtn = document.getElementById("login-modal-close-btn");
   if (modal) {
+    if (closeBtn) {
+      closeBtn.classList.toggle("hidden", isMandatory);
+    }
     modal.classList.remove("hidden");
     modal.classList.add("flex");
   }
 }
 
 function closeLoginModal() {
+  // Solo se puede cerrar si ya hay un usuario activo
+  if (!AppState.currentUser) {
+    showToast("Por favor crea o selecciona un perfil para continuar");
+    return;
+  }
   const modal = document.getElementById("login-modal");
   if (modal) {
     modal.classList.add("hidden");
@@ -899,30 +935,67 @@ function closeLoginModal() {
   }
 }
 
-function openProfileModal() {
-  const modal = document.getElementById("profile-modal");
-  if (!modal || !AppState.currentUser) return;
+function renderPerfilView() {
+  if (!AppState.currentUser) {
+    openLoginModal(true);
+    return;
+  }
 
   const initials = getInitials(AppState.currentUser.name);
   const pendingCount = AppState.tasks.filter(t => !t.completed).length;
   const completedCount = AppState.tasks.filter(t => t.completed).length;
+  const total = AppState.tasks.length;
+  const rate = total > 0 ? Math.round((completedCount / total) * 100) : 0;
 
-  document.getElementById("modal-user-avatar").textContent = initials;
-  document.getElementById("modal-user-name").textContent = AppState.currentUser.name;
-  document.getElementById("modal-user-email").innerHTML = `<span class="w-2 h-2 rounded-full bg-secondary"></span> ${escapeHTML(AppState.currentUser.email)}`;
-  document.getElementById("modal-user-pending").textContent = pendingCount;
-  document.getElementById("modal-user-completed").textContent = completedCount;
+  // Actualizar datos del perfil principal
+  document.getElementById("perfil-view-avatar").textContent = initials;
+  document.getElementById("perfil-view-name").textContent = AppState.currentUser.name;
+  document.getElementById("perfil-view-email").textContent = AppState.currentUser.email;
 
-  modal.classList.remove("hidden");
-  modal.classList.add("flex");
+  document.getElementById("perfil-stat-pending").textContent = pendingCount;
+  document.getElementById("perfil-stat-completed").textContent = completedCount;
+  document.getElementById("perfil-stat-rate").textContent = `${rate}%`;
+
+  // Renderizar la lista de cuentas/perfiles guardados en este equipo
+  const container = document.getElementById("perfil-saved-accounts-list");
+  if (container) {
+    const list = getSavedProfiles();
+    container.innerHTML = list.map(profile => {
+      const isCurrent = profile.email.toLowerCase() === AppState.currentUser.email.toLowerCase();
+      const pInitials = getInitials(profile.name);
+      return `
+        <div class="p-3 rounded-2xl bg-surface-container-lowest border ${isCurrent ? 'border-primary ring-1 ring-primary/20 shadow-xs' : 'border-surface-container'} flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-full ${isCurrent ? 'bg-primary text-on-primary' : 'bg-surface-container text-on-surface'} font-display font-bold text-xs flex items-center justify-center flex-shrink-0">
+              ${pInitials}
+            </div>
+            <div class="flex flex-col min-w-0">
+              <div class="flex items-center gap-1.5">
+                <span class="font-display font-bold text-xs text-on-surface truncate">${escapeHTML(profile.name)}</span>
+                ${isCurrent ? '<span class="px-1.5 py-0.2 rounded-full bg-secondary-container text-on-secondary-container text-[9px] font-bold">En uso</span>' : ''}
+              </div>
+              <span class="text-[11px] text-on-surface-variant truncate">${escapeHTML(profile.email)}</span>
+            </div>
+          </div>
+          ${!isCurrent ? `
+            <button onclick="loginWithPreset('${escapeHTML(profile.name)}', '${escapeHTML(profile.email)}')" class="px-3 py-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container text-primary text-xs font-display font-bold transition-all">
+              Entrar
+            </button>
+          ` : `
+            <span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+          `}
+        </div>
+      `;
+    }).join("");
+  }
+}
+
+function openProfileModal() {
+  navigateTo('perfil');
 }
 
 function closeProfileModal() {
-  const modal = document.getElementById("profile-modal");
-  if (modal) {
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-  }
+  navigateTo('pendientes');
 }
 
 function updateUserUI() {
@@ -934,9 +1007,17 @@ function updateUserUI() {
   const headerAvatar = document.getElementById("header-user-avatar");
   if (headerAvatar) headerAvatar.textContent = initials;
 
+  const headerName = document.getElementById("header-user-name");
+  if (headerName) headerName.textContent = firstName;
+
   // Saludo dinámico en pantalla principal
   const greetingEl = document.getElementById("user-greeting-name");
   if (greetingEl) greetingEl.textContent = firstName;
+
+  // Si estamos en la vista de perfil, actualizarla
+  if (AppState.currentView === "perfil") {
+    renderPerfilView();
+  }
 }
 
 function getFirstName(fullName) {
