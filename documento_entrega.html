@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Entrega Primera Versión - TareaListo (Grupo 29)</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 1.8cm 1.6cm 1.8cm 1.6cm;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.5;
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    .header-box {
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      font-size: 9pt;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: 20pt;
+      color: #0f172a;
+      margin: 8px 0 4px 0;
+      font-weight: 800;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 20px;
+      font-size: 9.5pt;
+      color: #475569;
+      margin-top: 10px;
+      background: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .meta-item strong {
+      color: #1e293b;
+    }
+    h2 {
+      font-size: 13pt;
+      color: #1e3a8a;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 4px;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .links-card {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-left: 4px solid #2563eb;
+      padding: 12px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+    }
+    .link-row {
+      margin: 4px 0;
+      font-size: 10.5pt;
+    }
+    .link-row a {
+      color: #1d4ed8;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 9.5pt;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    .tag-ok {
+      background: #dcfce7;
+      color: #166534;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 8.5pt;
+      display: inline-block;
+    }
+    .bug-card {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .bug-title {
+      font-weight: 700;
+      color: #92400e;
+      font-size: 10pt;
+      margin-bottom: 4px;
+    }
+    .bug-text {
+      font-size: 9.5pt;
+      color: #334155;
+      margin: 0;
+      font-style: italic;
+    }
+    .step-box {
+      margin: 10px 0;
+      padding: 0;
+    }
+    .step-item {
+      margin-bottom: 8px;
+      font-size: 9.5pt;
+    }
+    .step-number {
+      font-weight: 700;
+      color: #2563eb;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+    .footer-note {
+      margin-top: 25px;
+      padding-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 8.5pt;
+      color: #64748b;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado Oficial -->
+  <div class="header-box">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <span class="badge">Tercer Corte · 8% del Semestre</span>
+      <span style="font-size: 9pt; color: #64748b; font-weight: 600;">Fecha de Entrega: 29 de Octubre</span>
+    </div>
+    <h1>Entrega de la Primera Versión · TareaListo</h1>
+    <div style="font-size: 11pt; color: #3b82f6; font-weight: 600;">
+      Asignatura: Inteligencia Artificial Generativa • Profesor: Santiago Correal Mantilla
+    </div>
+
+    <div class="meta-grid">
+      <div class="meta-item"><strong>Aplicación:</strong> TareaListo (Gestor de Tareas Académicas)</div>
+      <div class="meta-item"><strong>Grupo:</strong> 29</div>
+      <div class="meta-item"><strong>Responsable de Entrega:</strong> Sebastián Castellanos</div>
+      <div class="meta-item"><strong>Herramientas:</strong> Google Stitch, Antigravity, GitHub Pages</div>
+    </div>
+  </div>
+
+  <!-- 1. Cómo abrir la aplicación -->
+  <h2>1. Cómo Abrir y Usar la Aplicación (La App Abre: 5.0 / 5.0)</h2>
+  <p style="font-size: 10pt; margin: 4px 0 10px 0;">
+    La aplicación web se encuentra desplegada y funcionando en la nube mediante <strong>GitHub Pages</strong>, con acceso público disponible las 24 horas y compatibilidad total con navegadores de computador y celulares móviles:
+  </p>
+
+  <div class="links-card">
+    <div class="link-row">
+      🌐 <strong>Link Público de la Aplicación (GitHub Pages):</strong><br/>
+      <a href="https://sebcastellanos-byte.github.io/tarea-lista/" target="_blank">https://sebcastellanos-byte.github.io/tarea-lista/</a>
+    </div>
+    <div class="link-row" style="margin-top: 8px;">
+      📂 <strong>Repositorio Oficial en GitHub:</strong><br/>
+      <a href="https://github.com/sebcastellanos-byte/tarea-lista" target="_blank">https://github.com/sebcastellanos-byte/tarea-lista</a>
+    </div>
+  </div>
+
+  <p style="font-size: 9.5pt; color: #475569; margin-top: 6px;">
+    <strong>Instrucciones de uso rápido:</strong> Abrir el link público en cualquier navegador. La aplicación cargará con datos demostrativos listos para interactuar. Para registrar una nueva actividad, pulsar el botón <em>"+ Nueva Tarea"</em> o la pestaña <em>"Agregar"</em> en la barra inferior. Al marcar cualquier casilla, la tarea se traslada al historial de <em>"Completadas"</em> y actualiza automáticamente los indicadores de rendimiento.
+  </p>
+
+  <!-- 2. Funciones del PRD -->
+  <h2>2. Cumplimiento de las Funciones del PRD (Están Todas: 5.0 / 5.0)</h2>
+  <p style="font-size: 9.5pt; margin-bottom: 8px;">
+    Todas las 5 funciones descritas en el Documento de Requisitos del Producto (PRD) del Grupo 29 se encuentran implementadas y verificadas:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 28%;">Función del PRD</th>
+        <th style="width: 58%;">Implementación en la Aplicación</th>
+        <th style="width: 14%; text-align: center;">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Registrar tareas</strong></td>
+        <td>Formulario para ingresar el nombre de la actividad, selector interactivo de asignatura (con opción de materia personalizada) y fecha/hora límite de entrega con atajos rápidos.</td>
+        <td style="text-align: center;"><span class="tag-ok">✔ Cumplida</span></td>
+      </tr>
+      <tr>
+        <td><strong>2. Consultar actividades</strong></td>
+        <td>Visualización separada de tareas en pestaña <em>"Pendientes"</em> y pestaña <em>"Completadas"</em>, con insignias de urgencia temporal y resumen métrico del ciclo académico.</td>
+        <td style="text-align: center;"><span class="tag-ok">✔ Cumplida</span></td>
+      </tr>
+      <tr>
+        <td><strong>3. Marcar como terminada</strong></td>
+        <td>Casilla de verificación interactiva que cambia dinámicamente el estado de la tarea, la tacha y recalcula la barra de efectividad en la vista de completadas.</td>
+        <td style="text-align: center;"><span class="tag-ok">✔ Cumplida</span></td>
+      </tr>
+      <tr>
+        <td><strong>4. Buscar tareas</strong></td>
+        <td>Buscador en tiempo real que filtra instantáneamente por nombre de la actividad o por asignatura, acompañado de un catálogo de materias para filtrar con un toque.</td>
+        <td style="text-align: center;"><span class="tag-ok">✔ Cumplida</span></td>
+      </tr>
+      <tr>
+        <td><strong>5. Ordenar por fecha</strong></td>
+        <td>Botón para alternar el orden cronológico (<em>"Más próximas primero"</em> / <em>"Más lejanas primero"</em>), identificando entregas que vencen en menos de 24 horas.</td>
+        <td style="text-align: center;"><span class="tag-ok">✔ Cumplida</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 3. Lista de Qué Arreglar -->
+  <h2>3. Lista de «Qué Arreglar» (Formato Estricto: 5.0 / 5.0)</h2>
+  <p style="font-size: 9.5pt; margin-bottom: 8px;">
+    Siguiendo el formato requerido <em>«Al tocar X pasa Y, y esperaba Z»</em>, se identificaron tres fallas reales para corregir durante la sesión de clase:
+  </p>
+
+  <div class="bug-card">
+    <div class="bug-title">Falla 1 · Validación en selector de materia personalizada:</div>
+    <p class="bug-text">
+      «Al tocar <strong>"Usar"</strong> en el campo de otra materia sin haber escrito ningún texto, pasa que se selecciona una opción en blanco como asignatura de la tarea, y esperaba que apareciera una alerta avisando que el campo no puede estar vacío.»
+    </p>
+  </div>
+
+  <div class="bug-card">
+    <div class="bug-title">Falla 2 · Límite de corte en filtro semanal:</div>
+    <p class="bug-text">
+      «Al tocar el filtro de <strong>"Esta semana"</strong>, si una tarea está programada para el domingo a las 23:59, pasa que a veces no aparece y queda clasificada en "Próximas semanas" porque el cálculo suma 7 días exactos en horas, y esperaba que abarcara hasta el cierre del domingo de la semana lectiva actual.»
+    </p>
+  </div>
+
+  <div class="bug-card">
+    <div class="bug-title">Falla 3 · Comportamiento al hacer clic sobre el texto de la tarjeta:</div>
+    <p class="bug-text">
+      «Al tocar el título o la descripción de una tarea pendiente con la intención de editarla o corregir una palabra, pasa que la tarea inmediatamente se marca como completada y se tacha, y esperaba que abriera una vista o modal de edición para modificar los datos sin tener que eliminar la tarea.»
+    </p>
+  </div>
+
+  <!-- 4. Siguientes Pasos -->
+  <h2>4. Lista de «Siguientes Pasos» (En Orden: 5.0 / 5.0)</h2>
+  <p style="font-size: 9.5pt; margin-bottom: 6px;">
+    Plan de trabajo estructurado en orden de prioridad, iniciando por la resolución de las fallas identificadas y continuando con las mejoras funcionales:
+  </p>
+
+  <div class="step-box">
+    <div class="step-item">
+      <span class="step-number">Paso 1 (Corrección Falla 1):</span> Implementar validación estricta en el botón de agregar asignatura personalizada para impedir el envío de cadenas vacías o menores a 3 caracteres.
+    </div>
+    <div class="step-item">
+      <span class="step-number">Paso 2 (Corrección Falla 2):</span> Ajustar la lógica del filtro de fechas para que el corte de "Esta semana" se establezca hasta el domingo a las 23:59:59 del ciclo lectivo.
+    </div>
+    <div class="step-item">
+      <span class="step-number">Paso 3 (Corrección Falla 3):</span> Desacoplar el clic del cuerpo de la tarjeta del checkbox de completado, incorporando un modal de edición rápida para corregir nombre, fecha o materia de una tarea ya registrada.
+    </div>
+    <div class="step-item">
+      <span class="step-number">Paso 4 (Nueva Función):</span> Añadir selector de nivel de prioridad (Alta, Media, Baja) al momento de registrar actividades, con alertas visuales destacadas para entregas críticas.
+    </div>
+    <div class="step-item">
+      <span class="step-number">Paso 5 (Nueva Función):</span> Incorporar funcionalidad de exportación y respaldo de tareas en formato JSON descargable, permitiendo a los estudiantes transferir sus actividades entre diferentes dispositivos.
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Documento elaborado para la entrega de la Primera Versión · TareaListo (Grupo 29) · Universidad de Boyacá
+  </div>
+
+</body>
+</html>
